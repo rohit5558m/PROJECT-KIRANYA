@@ -55,7 +55,7 @@ def wishMe():
         speak("Good Afternoon!")    
     else: 
         speak("Good Evening!") 
-    speak("Ready To Comply. What can I do for you?") 
+    speak("I am Kiranya and i am Ready To Comply. What can I do for you?") 
 
 def takeCommand(): 
     r = sr.Recognizer() 
@@ -74,7 +74,7 @@ def takeCommand():
 
 def search_wikipedia(query):
     speak('Searching Wikipedia...') 
-    query = query.replace("wikipedia", "") 
+    query = query.replace("wikipedia" or 'search' or 'short note' or 'give a short note about'or 'who is' , "") 
     results = wikipedia.summary(query, sentences=2) 
     speak("According to Wikipedia") 
     print(results) 
@@ -98,7 +98,7 @@ def perform_system_action(action):
 def commands():
     while True: 
         query = takeCommand().lower() 
-        if 'wikipedia' in query: 
+        if 'wikipedia' or 'search' or 'short note' or 'who is' in query: 
             search_wikipedia(query)
         elif 'open youtube' in query: 
             speak("What would you like to watch?") 
